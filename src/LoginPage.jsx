@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom"
+
 function LoginPage() {
+    const navigate = useNavigate()
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
 
@@ -11,7 +14,9 @@ function LoginPage() {
         </div>
 
         {/* Form */}
-        <form className="flex flex-col gap-4">
+        <form 
+        onSubmit = {() => navigate ("/Index")}
+        className="flex flex-col gap-4">
 
           {/* Username field */}
           <div className="flex flex-col gap-1">
@@ -39,11 +44,12 @@ function LoginPage() {
 
           {/* Login button */}
           <button
-            type="submit"
-            className="bg-teal-600 hover:bg-teal-700 text-white font-medium py-2 rounded-lg text-sm transition-colors duration-200"
-          >
-            Login
-          </button>
+        
+  type="submit"
+  className="bg-teal-600 hover:bg-teal-700 text-white font-medium py-2 rounded-lg text-sm transition-colors duration-200"
+>
+  Login
+</button>
 
         </form>
 
@@ -57,7 +63,7 @@ function LoginPage() {
         {/* Register link */}
         <p className="text-center text-sm text-gray-500">
           No account?{' '}
-          <span className="text-teal-600 font-medium cursor-pointer hover:underline">
+          <span onClick = {() => navigate ("/Register")}className="text-teal-600 font-medium cursor-pointer hover:underline">
             Create one
           </span>
         </p>

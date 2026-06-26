@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function Register() {
+function RegisterPage() {
   const navigate = useNavigate()
 
   return (
