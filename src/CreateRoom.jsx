@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function CreateRoomPage() {
+function CreateRoom() {
   const navigate = useNavigate()
   const roomCode = "XK-4829"
 
@@ -57,4 +57,4 @@ function CreateRoomPage() {
   );
 }
 
-export default CreateRoomPage
+export default CreateRoom

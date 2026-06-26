@@ -78,7 +78,7 @@ function SymbolPick() {
 
         {/* Back */}
         <p
-          onClick={() => navigate("/create-room")}
+          onClick={() => navigate("/")}
           className="text-center text-sm text-gray-400 hover:text-gray-600 cursor-pointer mt-6 transition-colors duration-200"
         >
           ← Back

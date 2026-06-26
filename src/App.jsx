@@ -13,10 +13,10 @@ function App() {
     <Route path = "/" element = {<LoginPage />} />
     <Route path = "/register" element = {<Register/>} />
     <Route path = "/index" element = {<Index />} />
-    <Route path = "/CreateRoom" element = {<CreateRoom />} />
-    <Route path = "/SymbolPick" element = {<SymbolPick />} />
-    <Route path = "/Game" element = {<Game />} />
-    <Route path = "/history" element = {<Histoty />} />
+    <Route path = "/create-room" element = {<CreateRoom />} />
+    <Route path = "/symbolPick" element = {<SymbolPick />} />
+    <Route path = "/game" element = {<Game />} />
+    <Route path = "/history" element = {<History />} />
   </Routes>
   
   </BrowserRouter>

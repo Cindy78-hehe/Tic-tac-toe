@@ -1,46 +1,47 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
-const fakeHistory = [
-  {
-    id: 1,
-    player1: "John",
-    player2: "Jane",
-    winner: "John",
-    symbol: "X",
-    score: "2-1",
-    date: "June 24, 2026",
-  },
-  {
-    id: 2,
-    player1: "John",
-    player2: "Bob",
-    winner: "Bob",
-    symbol: "O",
-    score: "0-2",
-    date: "June 23, 2026",
-  },
-  {
-    id: 3,
-    player1: "John",
-    player2: "Sara",
-    winner: "draw",
-    symbol: null,
-    score: "1-1",
-    date: "June 22, 2026",
-  },
-  {
-    id: 4,
-    player1: "John",
-    player2: "Mike",
-    winner: "John",
-    symbol: "X",
-    score: "2-0",
-    date: "June 21, 2026",
-  },
-]
 
 function History() {
   const navigate = useNavigate()
+
+  const [history, setHistory] = useState([
+    {
+      id: 1,
+      player1: "John",
+      player2: "Jane",
+      winner: "John",
+      symbol: "X",
+      score: "2-1",
+      date: "June 24, 2026",
+    },
+    {
+      id: 2,
+      player1: "John",
+      player2: "Bob",
+      winner: "Bob",
+      symbol: "O",
+      score: "0-2",
+      date: "June 23, 2026",
+    },
+    {
+      id: 3,
+      player1: "John",
+      player2: "Sara",
+      winner: "draw",
+      symbol: null,
+      score: "1-1",
+      date: "June 22, 2026",
+    },
+    {
+      id: 4,
+      player1: "John",
+      player2: "Mike",
+      winner: "John",
+      symbol: "X",
+      score: "2-0",
+      date: "June 21, 2026",
+    },
+  ])
 
   const getResult = (match) => {
     if (match.winner === "draw") return "draw"
@@ -76,7 +77,7 @@ function History() {
         {/* Header */}
         <div className="flex items-center gap-4 mb-6">
           <button
-            onClick={() => navigate("/Index")}
+            onClick={() => navigate("/index")}
             className="text-gray-400 hover:text-teal-600 transition-colors duration-200 text-xl"
           >
             ←
@@ -91,19 +92,19 @@ function History() {
         <div className="flex gap-3 mb-6">
           <div className="flex-1 text-center bg-teal-50 border border-teal-200 rounded-xl py-3">
             <p className="text-2xl font-bold text-teal-600">
-              {fakeHistory.filter(m => getResult(m) === "win").length}
+              {history.filter(m => getResult(m) === "win").length}
             </p>
             <p className="text-xs text-gray-500 mt-1">Wins</p>
           </div>
           <div className="flex-1 text-center bg-gray-50 border border-gray-200 rounded-xl py-3">
             <p className="text-2xl font-bold text-gray-400">
-              {fakeHistory.filter(m => getResult(m) === "draw").length}
+              {history.filter(m => getResult(m) === "draw").length}
             </p>
             <p className="text-xs text-gray-500 mt-1">Draws</p>
           </div>
           <div className="flex-1 text-center bg-red-50 border border-red-200 rounded-xl py-3">
             <p className="text-2xl font-bold text-red-400">
-              {fakeHistory.filter(m => getResult(m) === "loss").length}
+              {history.filter(m => getResult(m) === "loss").length}
             </p>
             <p className="text-xs text-gray-500 mt-1">Losses</p>
           </div>
@@ -111,7 +112,7 @@ function History() {
 
         {/* Match list */}
         <div className="flex flex-col gap-3">
-          {fakeHistory.map((match) => {
+          {history.map((match) => {
             const result = getResult(match)
             const style = resultStyles[result]
 
@@ -147,23 +148,34 @@ function History() {
 
                 </div>
               </div>
+              
             )
           })}
         </div>
 
-        {/* Empty state — for when there are no games */}
-        {fakeHistory.length === 0 && (
+        {/* Empty state */}
+        {history.length === 0 && (
           <div className="text-center py-16">
             <p className="text-gray-400 text-lg mb-2">No games yet</p>
-            <p className="text-gray-400 text-sm">Play your first game to see history here</p>
+            <p className="text-gray-400 text-sm">
+              Play your first game to see history here
+            </p>
             <button
               onClick={() => navigate("/Index")}
               className="mt-6 bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-2 rounded-xl text-sm transition-colors duration-200"
             >
               Start playing
             </button>
+            
+            
           </div>
         )}
+        <button
+  onClick={() => navigate("/index")}
+  className="w-full mt-6 bg-white hover:bg-gray-50 text-gray-600 font-medium py-3 rounded-xl text-sm border border-gray-200 transition-colors duration-200"
+>
+  ← Back to Home
+</button>
 
       </div>
     </div>
